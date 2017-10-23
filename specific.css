@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+
+body::-webkit-scrollbar
+{
+	width: 0px;
+	background-color: #F5F5F5;
+}
+
+*{
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+body{
+    overflow: hidden;
+}
+
+.header{
+    background-color: lightgrey;
+    width: 100%;
+    height: 100%;
+    background-image: url(https://wallpaperscraft.com/image/yosemite_national_park_lake_rocks_mountains_autumn_nature_96336_3840x2400.jpg);
+    background-position: center center;
+    background-size: cover;
+    /*background-attachment: fixed;*/
+}
+
+.index-card{
+    height: 200px;
+    width: 100%;
+    z-index:2;
+    position: relative;
+    font-size: 3em;
+    color: white;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    overflow: hidden;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .index-card{
+        width: 60%;
+        border: 2px solid white;
+    }
+}
+
+.index-card:hover:before{
+    filter: blur(3px);
+    transform: scale(1.1);
+}
+
+.index-card::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    left: -10px;
+    right: -10px;
+    z-index: -10;
+    overflow: hidden;
+    background-image:url(https://wallpaperscraft.com/image/yosemite_national_park_lake_rocks_mountains_autumn_nature_96336_3840x2400.jpg);
+    overflow: hidden;
+    filter: blur(5px);
+    background-position: center center;
+    overflow: hidden;
+    background-size: cover;
+    transition: .5s ease;
+    /*background-attachment: fixed;*/
+}
+
+.index-card:hover{
+    cursor: pointer;
+}
+
+.index-card-title{
+    border-bottom: 2px solid white;
+}
+
+.content{
+}
+
+.nav-buttons-container{
+    width: 100%;
+    height: 50px;
+    justify-content: space-around;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: white;
+    z-index: 5;
+    position: sticky;
+    top: 0;
+    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+.nav-buttons-container:stick{
+    border-bottom: 1px solid hotpink;
+}
+
+.nav-button{
+    font-size: 2em;
+}
+
+.nav-button:hover{
+    cursor: pointer;
+    color: hotpink;
+}
+
+.gallery{
+    width: 100%;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.gallery-item{
+    width: 50%;
+    height: 50%;
+    object-fit: cover;  
+    position: relative;
+    border: 2px solid white;
+    filter: grayscale(100%);
+    transition: .2s ease;
+    overflow: hidden;
+}
+
+.gallery-item::before{
+    content: 'Click to view description. Double click to enhance.';
+    position: absolute;
+    font-size: 2em;
+    text-shadow: 1px 1px 1px black;
+    color: white;
+    opacity: 0;
+    margin-top: -30px;
+    transition: .2s ease;
+    padding: 10px;
+}
+
+.gallery-item:hover{
+    filter: grayscale(0%);
+    cursor: pointer;
+}
+
+.gallery-item:hover::before{
+    opacity: 1;
+    margin-top: 0px;
+}
+
+.gallery-item-detailed{
+    width: 100%;
+    height: 800px;
+    filter: grayscale(0%);
+}
+
+@media (max-width: 600px) {
+    .gallery-item{
+        width: 100%;
+        height: 80%;
+    }
+
+    .gallery-item::before{
+        content: 'Tap to view description.';
+        opacity: 1;
+        margin-top: 0px;
+    }
+}
+
+.gallery-item-picture{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.gallery-item-description{
+    position: absolute;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.0));
+    color: white;
+    padding: 15px;
+    font-size: 2em;
+    transition: 1s ease;
+}
+
+.gallery-item-description-visible{
+    margin-top: -200px;
+}
+
+.gallery-item-description-title{
+    border-bottom: 2px solid white;
+}
+
+.about{
+}
+
+.about-title{
+    font-size: 3em;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.about-description{
+    max-width: 600px;
+    font-size: 1.5em;
+    padding: 10px;
+    text-align: justify;
+}
+
+.about-description-highlight{
+    color: hotpink;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.7em;
+}
+
+.form-container{
+    width: 600px;
+    font-size: 1.5em;
+    justify-content: space-between;
+}
+
+@media (max-width: 600px) {
+    .form-container{
+        width: 300px;
+        justify-content: center;
+    }
+}
+
+.form-container-column{
+    width: 290px;
+    justify-content: space-between;
+    height: 150px;
+    margin-top: 30px;
+}
+
+.form-container-item{
+    width: 100%;
+    margin: 1px;
+    font-size: 1em;
+    padding: .2em;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    margin: 0px;
+    border-radius: 3px;
+}
+
+.form-container-item[type=text]:focus {
+    border: 1px solid pink;
+    outline-width: 0;
+    box-sizing: border-box;
+}
+
+.form-container-area{
+    height: 100%;
+    resize: none;
+    font-size: 1em;
+    padding: .2em;
+    outline: none;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    margin: 0px;
+    border-radius: 3px;
+}
+
+.form-container-area:focus {
+    border: 1px solid pink;
+    outline-width: 0;
+}
+
+.form-container-submit-button{
+    height: 50px;
+    width: 100%;
+    background-color: pink;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: white;
+    border-radius: 3px;
+    transition: .1s ease;
+}
+
+.form-container-submit-button:hover{
+    cursor: pointer;
+    background-color: #FFA1B2;
+    transform: scale(1.01);
+}
+.credits-container{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.credits-line{
+    font-size: 1.5em;
+}
+
+.credits-link{
+    text-decoration: none;
+}
+
+.credits-link:link{
+    color: pink;
+    text-decoration: none;
+}
+
+.credits-link:visited{
+    color: pink;
+    text-decoration: none;
+}
+
+.credits-link:hover{
+    border-bottom: 2px solid pink;
+}
